@@ -36,7 +36,7 @@ const submitLogin = async () => {
       <div class="flex flex-col items-center relative z-10">
         <div class="w-24 h-24 mb-8 relative group cursor-default">
           <div class="w-full h-full flex items-center justify-center relative z-10 animate-float-slow">
-            <img width="96" height="96" src="/logo.png" alt="MiSub" class="drop-shadow-2xl" />
+            <img width="96" height="96" src="/logo.svg" alt="MiSub" class="drop-shadow-2xl" />
           </div>
         </div>
 

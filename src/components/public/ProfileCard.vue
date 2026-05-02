@@ -32,11 +32,11 @@ const ICONS = {
 </script>
 
 <template>
-  <div class="group relative flex h-full flex-col rounded-[1.5rem] border border-gray-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary-500/20 hover:shadow-xl hover:shadow-primary-500/5 dark:border-white/5 dark:bg-[#1a1d29]">
+  <div class="group relative flex h-full flex-col rounded-[1.75rem] glass-card p-6 transition-all duration-300">
     <!-- Header: Icon & Title -->
     <div class="flex items-start justify-between mb-4">
       <div class="flex items-center gap-4">
-         <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-gray-50 transition-transform duration-300 group-hover:scale-105 dark:border-white/5 dark:bg-white/5">
+         <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/60 dark:bg-white/10 border border-white/50 dark:border-white/5 transition-transform duration-300 group-hover:scale-105 shadow-sm">
           <span class="text-2xl drop-shadow-sm">🚀</span>
         </div>
         <h3
@@ -67,11 +67,11 @@ const ICONS = {
     </div>
 
     <!-- Footer: Action Bar -->
-    <div class="mt-auto pt-4 border-t border-gray-100 dark:border-white/5 flex items-center gap-3">
+    <div class="mt-auto pt-4 border-t border-gray-100/60 dark:border-white/5 flex items-center gap-3">
 <!-- Primary Action: Import -->
       <button
         @click="emit('quick-import', profile)"
-        class="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-700"
+        class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-500/25 active:scale-95"
         aria-label="一键导入订阅"
       >
         <BaseIcon :path="ICONS.import" className="w-4 h-4" />
@@ -81,7 +81,7 @@ const ICONS = {
 <!-- Secondary Actions -->
       <button
         @click="emit('preview', profile)"
-        class="rounded-lg border border-gray-200 p-2.5 text-gray-500 transition-colors hover:bg-gray-50 hover:text-primary-600 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-primary-400"
+        class="rounded-xl border border-gray-200/60 dark:border-white/10 p-2.5 text-gray-500 transition-all duration-200 hover:bg-white/80 hover:text-primary-600 hover:border-primary-300/50 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-primary-400 bg-white/40 dark:bg-white/5 backdrop-blur-sm"
         title="预览节点"
         aria-label="预览节点"
       >
@@ -90,7 +90,7 @@ const ICONS = {
 
       <button
         @click="emit('copy-link', profile)"
-        class="rounded-lg border border-gray-200 p-2.5 text-gray-500 transition-colors hover:bg-gray-50 hover:text-primary-600 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-primary-400"
+        class="rounded-xl border border-gray-200/60 dark:border-white/10 p-2.5 text-gray-500 transition-all duration-200 hover:bg-white/80 hover:text-primary-600 hover:border-primary-300/50 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-primary-400 bg-white/40 dark:bg-white/5 backdrop-blur-sm"
         title="复制链接"
         aria-label="复制订阅链接"
       >

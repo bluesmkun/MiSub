@@ -185,7 +185,7 @@ const isCustomPageFullWidth = computed(() => {
 
 <template>
   <div :class="theme"
-    class="min-h-screen flex flex-col text-gray-800 dark:text-gray-200 transition-colors duration-300 bg-gray-100 dark:bg-[#030712]">
+    class="min-h-screen flex flex-col text-gray-800 dark:text-gray-200 transition-colors duration-300 bg-gradient-to-b from-gray-50 via-gray-50/95 to-gray-100/90 dark:from-[#030712] dark:via-[#040615] dark:to-[#030712]">
     <!-- Navigation -->
     <NavBar v-if="showModernNavBar" :is-logged-in="true" @logout="logout" />
     <Header v-else-if="showLegacyHeader" :is-logged-in="isLoggedIn" :hide-branding="shouldHidePublicBranding" @logout="logout" />

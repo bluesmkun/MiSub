@@ -54,7 +54,7 @@ onMounted(() => {
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
     <!-- Card 1: Traffic -->
     <div 
-      class="stat-card bg-white/90 dark:bg-gray-900/70 p-4 misub-radius-lg shadow-sm border border-gray-100/80 dark:border-white/10 transition-all duration-500"
+      class="stat-card glass-card p-4 transition-all duration-500"
       :class="{ 'stat-card-visible': isVisible }"
       style="--delay: 0ms"
     >
@@ -79,7 +79,7 @@ onMounted(() => {
 
     <!-- Card 2: Active Subs -->
     <div 
-      class="stat-card bg-white/90 dark:bg-gray-900/70 p-4 misub-radius-lg shadow-sm border border-gray-100/80 dark:border-white/10 transition-all duration-500"
+      class="stat-card glass-card p-4 transition-all duration-500"
       :class="{ 'stat-card-visible': isVisible }"
       style="--delay: 100ms"
     >
@@ -101,7 +101,7 @@ onMounted(() => {
 
     <!-- Card 3: Total Nodes -->
     <div 
-      class="stat-card bg-white/90 dark:bg-gray-900/70 p-4 misub-radius-lg shadow-sm border border-gray-100/80 dark:border-white/10 transition-all duration-500"
+      class="stat-card glass-card p-4 transition-all duration-500"
       :class="{ 'stat-card-visible': isVisible }"
       style="--delay: 200ms"
     >
@@ -117,7 +117,7 @@ onMounted(() => {
 
     <!-- Card 4: Profiles -->
     <div 
-      class="stat-card bg-white/90 dark:bg-gray-900/70 p-4 misub-radius-lg shadow-sm border border-gray-100/80 dark:border-white/10 transition-all duration-500"
+      class="stat-card glass-card p-4 transition-all duration-500"
       :class="{ 'stat-card-visible': isVisible }"
       style="--delay: 300ms"
     >

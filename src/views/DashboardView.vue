@@ -113,7 +113,7 @@ const handleQRCode = (url, title) => {
     </div>
     
     <template v-else>
-      <div class="mb-4 bg-white/80 dark:bg-gray-900/60 border border-gray-100/80 dark:border-white/10 misub-radius-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div class="mb-4 glass-frosted rounded-2xl p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 class="text-2xl font-bold text-gray-900 dark:text-white">仪表盘</h1>
           <p class="mt-1 text-sm font-medium text-gray-600 dark:text-gray-400 flex items-center gap-2">

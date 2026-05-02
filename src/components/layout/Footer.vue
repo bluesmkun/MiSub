@@ -16,7 +16,7 @@ const currentVersion = packageJson.version;
 </script>
 
 <template>
-<footer class="w-full text-center p-8 border-t border-gray-200 dark:border-white/10 mt-8">
+<footer class="w-full text-center p-8 border-t border-gray-200/40 dark:border-white/5 mt-8 bg-white/30 dark:bg-transparent backdrop-blur-sm">
   <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-gray-400 dark:text-gray-500">
     <p>
       <template v-if="!hideBranding">

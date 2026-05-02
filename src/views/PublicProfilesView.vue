@@ -293,7 +293,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="min-h-screen bg-transparent transition-colors duration-500 selection:bg-primary-500/30 selection:text-white relative">
+    <div class="min-h-screen bg-decorative bg-frost-pattern transition-colors duration-500 selection:bg-primary-500/30 selection:text-white relative">
 
         <template v-if="isInitialLoading">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
@@ -362,12 +362,20 @@ onUnmounted(() => {
         <!-- 默认布局模式 -->
         <template v-else>
             <!-- Hero Section (Left Aligned & Open) -->
-            <div class="relative pt-10 pb-10 lg:pt-16 lg:pb-14 z-10 overflow-visible">
+            <div class="relative pt-10 pb-10 lg:pt-20 lg:pb-16 z-10 overflow-visible">
+                <!-- Floating decorative dots -->
+                <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                    <div class="absolute top-20 left-[10%] w-2 h-2 rounded-full bg-primary-300/40 dark:bg-primary-500/30 animate-float"></div>
+                    <div class="absolute top-40 right-[15%] w-3 h-3 rounded-full bg-purple-300/30 dark:bg-purple-500/25 animate-float" style="animation-delay: 1.5s; animation-duration: 7s;"></div>
+                    <div class="absolute bottom-10 left-[30%] w-2.5 h-2.5 rounded-full bg-indigo-300/35 dark:bg-indigo-500/25 animate-float" style="animation-delay: 3s; animation-duration: 8s;"></div>
+                    <div class="absolute top-1/2 right-[25%] w-1.5 h-1.5 rounded-full bg-primary-400/30 dark:bg-primary-400/20 animate-float" style="animation-delay: 0.8s; animation-duration: 5.5s;"></div>
+                </div>
+
                 <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
                     <!-- Left Content: Text (Wider column for no-wrap) -->
                     <div class="text-left relative z-20 lg:col-span-12 xl:col-span-12">
                         <!-- Badge -->
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary-200/50 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md mb-8 shadow-sm animate-fade-in-up">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-frosted mb-8 shadow-sm animate-fade-in-up">
                             <span class="relative flex h-2 w-2">
                               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                               <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
@@ -446,11 +454,11 @@ onUnmounted(() => {
                 </div>
 
                 <!-- Clients Section (Visually Separated) -->
-                <div class="mt-16 pt-12 pb-10 border-t border-transparent bg-transparent dark:bg-transparent backdrop-blur-sm">
+                <div class="mt-16 pt-12 pb-10 border-t border-transparent bg-transparent dark:bg-transparent">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="text-center mb-16 relative">
                             <div class="relative inline-flex flex-col items-center">
-                                <span class="text-sm font-bold tracking-widest text-primary-600 dark:text-primary-400 uppercase mb-2">Essential Tools</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-frosted text-sm font-bold tracking-widest text-primary-600 dark:text-primary-400 uppercase mb-4">Essential Tools</span>
                                 <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                                     必备客户端
                                 </h2>
@@ -462,10 +470,10 @@ onUnmounted(() => {
 
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                             <div v-for="client in clients" :key="client.name"
-                                class="group relative glass-panel dark:bg-white/5 backdrop-blur-2xl rounded-[2rem] p-6 shadow-xl border border-white/40 dark:border-white/5 hover:border-primary-500/30 transition-all duration-300 hover:shadow-primary-500/5">
+                                class="group relative glass-card rounded-[1.75rem] p-6 hover:shadow-xl transition-all duration-300">
                                 
                                 <div class="flex items-start gap-5">
-                                    <div class="h-12 w-12 misub-radius-lg flex items-center justify-center text-3xl shadow-sm bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 group-hover:scale-105 transition-transform duration-300 shrink-0 overflow-hidden">
+                                    <div class="h-12 w-12 rounded-xl flex items-center justify-center text-3xl shadow-sm bg-white/60 dark:bg-white/10 border border-white/50 dark:border-white/5 group-hover:scale-105 transition-transform duration-300 shrink-0 overflow-hidden">
     <img v-if="client.icon && (client.icon.includes('/') || client.icon.startsWith('data:'))" :src="client.icon"
                             :alt="client.name" class="w-full h-full object-cover rounded-lg p-1" />
                         <span v-else>{{ client.icon }}</span>
@@ -495,8 +503,8 @@ onUnmounted(() => {
                                     </div>
                                 </div>
 
-                                <div class="mt-6 flex items-center justify-between pt-4 border-t border-gray-50 dark:border-white/5">
-                                    <span class="text-xs text-gray-400 bg-gray-50 dark:bg-white/5 px-2 py-1 misub-radius-md">
+                                <div class="mt-6 flex items-center justify-between pt-4 border-t border-gray-100/60 dark:border-white/5">
+                                    <span class="text-xs text-gray-400 bg-gray-50/60 dark:bg-white/5 px-2 py-1 rounded-lg">
                                         {{ getClientVersionLabel(client) }}
                                     </span>
 

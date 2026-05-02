@@ -41,7 +41,7 @@ const handleClose = (id) => {
       <div
         v-for="toast in toastStore.toasts"
         :key="toast.id"
-        class="toast-container pointer-events-auto w-full sm:w-auto sm:min-w-80 max-w-md backdrop-blur-lg border border-white/20 misub-radius-lg shadow-2xl overflow-hidden ring-1 transition-all duration-300 relative"
+        class="toast-container pointer-events-auto w-full sm:w-auto sm:min-w-80 max-w-md backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden ring-1 transition-all duration-300 relative"
         :class="[getToastConfig(toast.type).bg, getToastConfig(toast.type).ring]"
       >
         <!-- Toast 内容 -->

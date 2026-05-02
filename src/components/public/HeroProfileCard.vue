@@ -36,18 +36,18 @@ const ICONS = {
         
         <!-- Main Card Content -->
         <div
-            class="relative glass-panel dark:bg-white/5 backdrop-blur-2xl rounded-[2rem] p-8 lg:p-10 shadow-xl border border-white/40 dark:border-white/5">
+            class="relative glass-frosted-heavy rounded-[2rem] p-8 lg:p-10">
             
             <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 
                 <!-- 1. Brand / Header Column -->
                 <div class="flex-shrink-0 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4">
-                    <div class="inline-flex items-center gap-2 rounded-full bg-primary-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary-700 dark:bg-primary-500/20 dark:text-primary-300">
+                    <div class="inline-flex items-center gap-2 rounded-full glass-frosted px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary-700 dark:text-primary-300">
                         <span>精选推荐</span>
                     </div>
                     
                     <div class="flex items-center gap-4">
-                        <div class="h-16 w-16 misub-radius-lg bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg shadow-primary-500/20 text-3xl">
+                        <div class="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg shadow-primary-500/20 text-3xl">
                              🚀
                         </div>
                         <div>
@@ -59,7 +59,7 @@ const ICONS = {
                 </div>
 
                 <!-- 2. Description Column (Middle) -->
-                <div class="flex-1 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-white/5 pt-6 lg:pt-0 lg:pl-12 w-full lg:w-auto text-center lg:text-left">
+                <div class="flex-1 border-t lg:border-t-0 lg:border-l border-gray-200/40 dark:border-white/10 pt-6 lg:pt-0 lg:pl-12 w-full lg:w-auto text-center lg:text-left">
                     <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
                         {{ profile.description || '该订阅组由管理员维护，可用于快速预览节点并一键导入到客户端。' }}
                     </p>
@@ -68,19 +68,19 @@ const ICONS = {
                 <!-- 3. Action Column (Right) -->
                 <div class="flex-shrink-0 w-full lg:w-auto flex flex-col gap-3 min-w-[200px]">
                     <button @click="emit('quick-import', profile)"
-                        class="group flex w-full items-center justify-center rounded-lg bg-primary-600 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-primary-700">
+                        class="group flex w-full items-center justify-center rounded-xl bg-primary-600 px-6 py-3.5 font-semibold text-white transition-all duration-300 hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-500/25 active:scale-95">
                         <BaseIcon :path="ICONS.import" className="mr-2 w-5 h-5" />
                         一键导入
                     </button>
                     
                     <div class="grid grid-cols-2 gap-3">
                         <button @click="emit('preview', profile)"
-                            class="flex items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-white/10 dark:bg-white/5 dark:text-gray-200 dark:hover:bg-white/10">
+                            class="flex items-center justify-center rounded-xl border border-gray-200/60 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-white/90 hover:border-primary-300/50 hover:text-primary-600 dark:text-gray-200 dark:hover:bg-white/10 dark:hover:text-primary-400">
                             <BaseIcon :path="ICONS.preview" className="w-4 h-4 mr-1" />
                             预览
                         </button>
                          <button @click="emit('copy-link', profile)"
-                            class="flex items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-white/10 dark:bg-white/5 dark:text-gray-200 dark:hover:bg-white/10">
+                            class="flex items-center justify-center rounded-xl border border-gray-200/60 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-sm px-4 py-3 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-white/90 hover:border-primary-300/50 hover:text-primary-600 dark:text-gray-200 dark:hover:bg-white/10 dark:hover:text-primary-400">
                             <BaseIcon :path="ICONS.link" className="w-4 h-4 mr-1" />
                             复制
                         </button>
