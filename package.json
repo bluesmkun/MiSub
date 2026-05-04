@@ -31,6 +31,7 @@
     "happy-dom": "^20.0.11",
     "miniflare": "^4.20250803.0",
     "tailwindcss": "^4.1.12",
+    "terser": "^5.46.2",
     "vite": "^7.1.2",
     "vitest": "^4.0.16",
     "wrangler": "^4.56.0"

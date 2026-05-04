@@ -31,16 +31,21 @@ const submitLogin = async () => {
 
 <template>
   <div class="w-full max-w-[420px] md:max-w-[480px] lg:max-w-[520px] relative z-10 px-6">
-    <div class="relative bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border border-white/50 dark:border-white/10 rounded-[2rem] p-10 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] dark:shadow-none overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_-12px_rgba(0,0,0,0.15)]">
+    <div class="relative bg-white/60 dark:bg-slate-900/60 backdrop-blur-3xl border border-white/50 dark:border-white/10 rounded-[2rem] p-10 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.4)] overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_-12px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_20px_60px_-12px_rgba(0,0,0,0.5)]">
+      
+      <!-- Decorative glow -->
+      <div class="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-gradient-to-br from-primary-400/20 to-purple-500/10 dark:from-primary-500/15 dark:to-purple-600/8 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-gradient-to-tr from-indigo-400/15 to-cyan-400/10 dark:from-indigo-500/12 dark:to-cyan-500/6 blur-3xl pointer-events-none"></div>
       
       <div class="flex flex-col items-center relative z-10">
         <div class="w-24 h-24 mb-8 relative group cursor-default">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400/20 to-purple-500/20 dark:from-primary-500/20 dark:to-purple-600/20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
           <div class="w-full h-full flex items-center justify-center relative z-10 animate-float-slow">
             <img width="96" height="96" src="/logo.svg" alt="MiSub" class="drop-shadow-2xl" />
           </div>
         </div>
 
-        <div class="text-center mb-10 animate-fade-in-up">
+        <div class="text-center mb-8 animate-fade-in-up">
           <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">
             欢迎回来
           </h1>
@@ -50,7 +55,7 @@ const submitLogin = async () => {
         </div>
       </div>
 
-      <form @submit.prevent="submitLogin" class="space-y-8 relative z-10 w-full mb-4">
+      <form @submit.prevent="submitLogin" class="space-y-6 relative z-10 w-full mb-4">
         <div class="relative w-full group" :class="{ 'animate-shake': error }">
           <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors"
             :class="error ? 'text-red-500' : 'text-gray-400 group-focus-within:text-primary-500'">
@@ -68,17 +73,17 @@ const submitLogin = async () => {
       placeholder="管理员密码 / 访问凭证"
       autocomplete="current-password"
       :disabled="isLoading"
-      class="w-full bg-transparent border misub-radius-lg py-3.5 pl-11 pr-12 outline-none transition-all duration-300 disabled:opacity-50"
+      class="w-full bg-white/50 dark:bg-white/5 border rounded-xl py-3.5 pl-11 pr-12 outline-none transition-all duration-300 disabled:opacity-50 placeholder:text-gray-400 dark:placeholder:text-gray-600 backdrop-blur-sm"
       :class="[
         error
-          ? 'border-red-500 text-red-500 placeholder-red-300 focus:border-red-500 focus:ring-1 focus:ring-red-500/50'
-          : 'border-gray-200 dark:border-white/20 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:border-primary-500 dark:focus:border-primary-400 focus:ring-1 focus:ring-primary-500/50 dark:focus:ring-primary-400/50'
+          ? 'border-red-500 text-red-500 placeholder:text-red-300 focus:border-red-500 focus:ring-1 focus:ring-red-500/50'
+          : 'border-gray-200 dark:border-white/15 text-gray-900 dark:text-white focus:border-primary-500 dark:focus:border-primary-400 focus:ring-2 focus:ring-primary-500/30 dark:focus:ring-primary-400/30'
       ]"
     />
     <button
       type="button"
       @click="showPassword = !showPassword"
-      class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500/50 rounded-r-[1rem]"
+      class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500/50 rounded-r-xl"
       :aria-label="showPassword ? '隐藏密码' : '显示密码'"
     >
       <svg v-if="showPassword" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -91,7 +96,7 @@ const submitLogin = async () => {
       </svg>
     </button>
           <transition name="fade">
-            <p v-if="error" class="absolute top-full mt-2 left-0 right-0 text-center text-xs text-red-500 font-bold tracking-wide flex items-center justify-center gap-1">
+            <p v-if="error" class="absolute top-full mt-2 left-0 right-0 text-center text-xs text-red-500 font-semibold tracking-wide flex items-center justify-center gap-1">
               {{ error }}
             </p>
           </transition>
@@ -99,28 +104,34 @@ const submitLogin = async () => {
 
         <Button
           type="submit"
-          class="w-full relative overflow-hidden"
+          class="w-full relative overflow-hidden rounded-xl"
           :loading="isLoading"
           variant="primary"
           size="lg"
         >
           <template v-if="!isLoading">
-            <span class="relative z-10">授权登录</span>
+            <span class="relative z-10 font-semibold">授权登录</span>
           </template>
           <template v-else>
             <span>验证中...</span>
           </template>
         </Button>
       </form>
+
+      <div class="relative z-10 text-center">
+        <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100/80 dark:bg-white/5 hover:bg-gray-200/80 dark:hover:bg-white/10 text-sm text-gray-500 dark:text-gray-400 font-medium transition-all hover:-translate-y-0.5 hover:shadow-md backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+          </svg>
+          返回首页
+        </a>
+      </div>
     </div>
 
-    <div class="mt-8 text-center animate-fade-in-up animation-delay-300">
-      <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-sm text-gray-500 dark:text-gray-400 font-medium transition-all hover:-translate-y-0.5 hover:shadow-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-        </svg>
-        返回首页
-      </a>
+    <div class="mt-6 text-center animate-fade-in-up animation-delay-500">
+      <p class="text-xs text-gray-400 dark:text-gray-600">
+        Powered by <span class="font-semibold text-primary-500 dark:text-primary-400">MiSub</span>
+      </p>
     </div>
   </div>
 </template>
@@ -136,25 +147,13 @@ const submitLogin = async () => {
   animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
 }
 
-@keyframes blob {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-}
-
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-@keyframes pulse-slow {
-  0%, 100% { opacity: 0.1; transform: scale(1); }
-  50% { opacity: 0.2; transform: scale(1.05); }
-}
-
-@keyframes gradient-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
 }
 
 @keyframes fade-in-up {
@@ -168,32 +167,13 @@ const submitLogin = async () => {
   }
 }
 
-.animate-blob {
-  animation: blob 8s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulse-slow 4s ease-in-out infinite;
-}
-
-.animate-gradient-rotate {
-  animation: gradient-rotate 20s linear infinite;
-}
-
 .animate-fade-in-up {
   animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-300 {
-  animation-delay: 0.3s;
+.animation-delay-500 {
+  animation-delay: 0.5s;
 }
 
 .fade-enter-active,
@@ -207,10 +187,7 @@ const submitLogin = async () => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-blob,
   .animate-float-slow,
-  .animate-pulse-slow,
-  .animate-gradient-rotate,
   .animate-fade-in-up,
   .animate-shake {
     animation: none !important;

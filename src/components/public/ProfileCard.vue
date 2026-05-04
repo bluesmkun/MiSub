@@ -22,7 +22,6 @@ const emit = defineEmits([
   'register-canvas'
 ]);
 
-// Icon Paths
 const ICONS = {
   import: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4',
   qr: 'M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z',
@@ -32,11 +31,11 @@ const ICONS = {
 </script>
 
 <template>
-  <div class="group relative flex h-full flex-col rounded-[1.75rem] glass-card p-6 transition-all duration-300">
+  <div class="card-lift group relative flex h-full flex-col rounded-[1.75rem] glass-radiant p-6 transition-all duration-400">
     <!-- Header: Icon & Title -->
-    <div class="flex items-start justify-between mb-4">
+    <div class="flex items-start justify-between mb-5">
       <div class="flex items-center gap-4">
-         <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/60 dark:bg-white/10 border border-white/50 dark:border-white/5 transition-transform duration-300 group-hover:scale-105 shadow-sm">
+         <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500/10 to-purple-500/10 dark:from-primary-500/15 dark:to-purple-500/15 border border-primary-200/50 dark:border-primary-500/20 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary-500/15">
           <span class="text-2xl drop-shadow-sm">🚀</span>
         </div>
         <h3
@@ -47,12 +46,11 @@ const ICONS = {
         </h3>
       </div>
       
-<!-- QR Toggle (Small Top Right) -->
       <button
         @click.stop="emit('toggle-qr', profile)"
-        class="rounded-lg border border-gray-200 p-2 text-gray-400 transition-colors hover:bg-gray-50 hover:text-primary-600 dark:border-gray-700 dark:hover:bg-white/10 dark:hover:text-primary-400"
+        class="rounded-xl border border-gray-200/50 dark:border-white/10 p-2.5 text-gray-400 transition-all duration-200 hover:bg-white/80 hover:text-primary-600 hover:border-primary-300/50 dark:hover:bg-white/10 dark:hover:text-primary-400 bg-white/40 dark:bg-white/5 backdrop-blur-sm"
         title="显示二维码"
-        :class="{ 'bg-primary-50 text-primary-600 dark:bg-primary-500/10 dark:text-primary-400': isQrExpanded }"
+        :class="{ 'bg-primary-50 text-primary-600 border-primary-300 dark:bg-primary-500/15 dark:text-primary-400 dark:border-primary-500/30': isQrExpanded }"
         aria-label="显示二维码"
       >
         <BaseIcon :path="ICONS.qr" className="w-5 h-5" />
@@ -68,7 +66,6 @@ const ICONS = {
 
     <!-- Footer: Action Bar -->
     <div class="mt-auto pt-4 border-t border-gray-100/60 dark:border-white/5 flex items-center gap-3">
-<!-- Primary Action: Import -->
       <button
         @click="emit('quick-import', profile)"
         class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-500/25 active:scale-95"
@@ -78,10 +75,9 @@ const ICONS = {
         一键导入
       </button>
 
-<!-- Secondary Actions -->
       <button
         @click="emit('preview', profile)"
-        class="rounded-xl border border-gray-200/60 dark:border-white/10 p-2.5 text-gray-500 transition-all duration-200 hover:bg-white/80 hover:text-primary-600 hover:border-primary-300/50 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-primary-400 bg-white/40 dark:bg-white/5 backdrop-blur-sm"
+        class="rounded-xl border border-gray-200/50 dark:border-white/10 p-2.5 text-gray-500 transition-all duration-200 hover:bg-white/80 hover:text-primary-600 hover:border-primary-300/50 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-primary-400 bg-white/40 dark:bg-white/5 backdrop-blur-sm"
         title="预览节点"
         aria-label="预览节点"
       >
@@ -90,7 +86,7 @@ const ICONS = {
 
       <button
         @click="emit('copy-link', profile)"
-        class="rounded-xl border border-gray-200/60 dark:border-white/10 p-2.5 text-gray-500 transition-all duration-200 hover:bg-white/80 hover:text-primary-600 hover:border-primary-300/50 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-primary-400 bg-white/40 dark:bg-white/5 backdrop-blur-sm"
+        class="rounded-xl border border-gray-200/50 dark:border-white/10 p-2.5 text-gray-500 transition-all duration-200 hover:bg-white/80 hover:text-primary-600 hover:border-primary-300/50 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-primary-400 bg-white/40 dark:bg-white/5 backdrop-blur-sm"
         title="复制链接"
         aria-label="复制订阅链接"
       >

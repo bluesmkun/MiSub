@@ -42,11 +42,11 @@ const emit = defineEmits(['click']);
 
 const variantClasses = computed(() => {
   const variants = {
-    primary: 'bg-primary-600 hover:bg-primary-700 text-white shadow-sm shadow-primary-500/20 active:scale-95 transition-all text-sm font-medium',
-    secondary: 'bg-white/80 dark:bg-gray-800/60 hover:bg-white dark:hover:bg-gray-700/70 text-gray-800 dark:text-gray-200 border border-gray-200/80 dark:border-white/10',
-    danger: 'bg-red-500/90 hover:bg-red-500 text-white shadow-lg shadow-red-500/20 border border-white/20',
-    ghost: 'hover:bg-white/20 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300',
-    outline: 'bg-transparent hover:bg-primary-50 dark:hover:bg-primary-500/10 text-primary-600 dark:text-primary-400 border border-primary-500/50 dark:border-primary-400/50'
+    primary: 'bg-primary-600 hover:bg-primary-700 text-white shadow-lg shadow-primary-500/20 active:scale-95 transition-all text-sm font-semibold rounded-xl',
+    secondary: 'bg-white/60 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200 border border-gray-200/50 dark:border-white/10 backdrop-blur-sm rounded-xl',
+    danger: 'bg-red-500/90 hover:bg-red-600 text-white shadow-lg shadow-red-500/20 rounded-xl',
+    ghost: 'hover:bg-white/20 dark:hover:bg-white/5 text-gray-600 dark:text-gray-300 rounded-xl',
+    outline: 'bg-transparent hover:bg-primary-50 dark:hover:bg-primary-500/10 text-primary-600 dark:text-primary-400 border border-primary-500/40 dark:border-primary-400/40 rounded-xl'
   };
   return variants[props.variant];
 });
